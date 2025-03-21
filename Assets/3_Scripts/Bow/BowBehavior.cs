@@ -11,6 +11,12 @@ public class BowBehavior : MonoBehaviour
     void Start()
     {
         initialStringPosition = string_transform.localPosition;
+        PullInteraction.pullActionRelease += FireArror;
+    }
+
+    private void OnDestroy()
+    {
+        PullInteraction.pullActionRelease -= FireArror;
     }
 
     // Update is called once per frame
@@ -19,13 +25,13 @@ public class BowBehavior : MonoBehaviour
 
     }
 
-    public void FireArror()
+    public void FireArror(float strength)
     {
         Debug.Log("Let go the string");
         string_transform.localPosition = initialStringPosition;
         GameObject spawnBullet = Instantiate(arrow, spawnPoint.position, spawnPoint.rotation);
         //spawnBullet.transform.position = spawnPoint.position;
-        spawnBullet.GetComponent<Rigidbody>().velocity = spawnPoint.forward * bulletSpeed;
+        spawnBullet.GetComponent<Rigidbody>().velocity = spawnPoint.forward * bulletSpeed * strength;
         Destroy(spawnBullet, 5);
     }
 }

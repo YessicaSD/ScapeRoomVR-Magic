@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 192377121182273807}
   - component: {fileID: 9214588736884356783}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -789,7 +789,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7241717552852392944}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -805,7 +805,7 @@ Transform:
   - {fileID: 3981849017005286612}
   - {fileID: 2415497718592853599}
   m_Father: {fileID: 6433323294304123776}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &7295406044111293477
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,6 +816,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6433323294304123776}
   - component: {fileID: 8346081182990195151}
+  - component: {fileID: 2528979699477398190}
   m_Layer: 0
   m_Name: Arrows 1
   m_TagString: Untagged
@@ -831,14 +832,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7295406044111293477}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.227, y: 1.267, z: -4.157}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.17461, y: 0.17461002, z: 0.17461002}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1932415280650161044}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &8346081182990195151
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -861,11 +862,25 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2528979699477398190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7295406044111293477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f7c48de19203d43a76b32db01b8ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 25
+  tip: {fileID: 2415497718592853599}
 --- !u!1 &8206523049885644480
 GameObject:
   m_ObjectHideFlags: 0
