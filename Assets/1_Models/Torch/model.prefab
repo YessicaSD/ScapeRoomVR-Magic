@@ -50,13 +50,22 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: 10.51
+        m_Name: DissolveScaleFlame
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
       m_Array: []
     m_Vector4f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 4.5412054, y: 0.7882871, z: 0.3824592, w: 0}
+        m_Name: Color
+        m_Overridden: 1
+      - m_Value: {x: 0.13687837, y: 0.049844395, z: 0.049844395, w: 0}
+        m_Name: SmokeColor
+        m_Overridden: 1
     m_Uint:
       m_Array: []
     m_Int:
@@ -79,7 +88,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028423756540947480}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -245,7 +254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1036540173899712892
 Transform:
   m_ObjectHideFlags: 0
@@ -289,17 +298,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a9c5604e208b8cc49b2b7c1aeaa25ac4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.47
+      value: -5.01
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a9c5604e208b8cc49b2b7c1aeaa25ac4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.409
+      value: 4.15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a9c5604e208b8cc49b2b7c1aeaa25ac4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.09
+      value: 4.91
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a9c5604e208b8cc49b2b7c1aeaa25ac4,
         type: 3}
@@ -373,7 +382,15 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1036540173899712892}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a9c5604e208b8cc49b2b7c1aeaa25ac4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 769840672676059054}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a9c5604e208b8cc49b2b7c1aeaa25ac4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 211133060757634585}
   m_SourcePrefab: {fileID: 100100000, guid: a9c5604e208b8cc49b2b7c1aeaa25ac4, type: 3}
 --- !u!4 &1586585818545396957 stripped
 Transform:
@@ -381,3 +398,43 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1264972838321748790}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2112047254790620775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a9c5604e208b8cc49b2b7c1aeaa25ac4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1264972838321748790}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &769840672676059054
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112047254790620775}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 3.59
+  m_Center: {x: 0, y: 11.26, z: 0}
+--- !u!114 &211133060757634585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112047254790620775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f2a1da81d12a640aa131d81befe1c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fire: {fileID: 5725106868477604591}
