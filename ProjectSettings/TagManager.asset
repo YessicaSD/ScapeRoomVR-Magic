@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - PotionItem
+  - Floor
+  - Cauldron
+  - FlyingPotion
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - charger
   - TwoHandGrab
   - Stair
-  - 
+  - Floor
   - 
   - 
   - 

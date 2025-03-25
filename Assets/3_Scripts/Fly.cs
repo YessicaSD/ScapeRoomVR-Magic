@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using System.Reflection.Emit;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 
 public class Fly : MonoBehaviour
 {
+
     public InputActionReference customToggleReference;
     private InputAction toggleReference;
     public Transform leftHand;
     public Transform head;
+    public Transform foots;
     public float flyingSpeed;
-    private bool isFlying;
-    private bool hasAlreadyBeenTriggered;
+    private float targetFlyingSpeed = 0;
+    private float currentFlyingSpeed = 0;
+    private bool isFlying = false;
+    [SerializeField] private LayerMask _layerMask;
 
 
     private void Start()
@@ -27,36 +32,39 @@ public class Fly : MonoBehaviour
 
     private void Update()
     {
-        if (toggleReference.ReadValue<float>() > 0f)
-        {
-            Thrust();
-        }
+        Thrust();
     }
 
 
     private void ToggleJetpackAction(InputAction.CallbackContext context)
     {
-        if (!hasAlreadyBeenTriggered)
-        {
-            hasAlreadyBeenTriggered = true;
-            isFlying = !isFlying;
-        }
+        isFlying = !isFlying;
+        targetFlyingSpeed = isFlying ? flyingSpeed : 0;
     }
 
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Vector3 flyDirection = leftHand.transform.position - head.transform.position;
+        Gizmos.DrawLine(foots.position, foots.position + flyDirection * currentFlyingSpeed);
+    }
     private void Thrust()
     {
-        if (isFlying)
+        Vector3 flyDirection = leftHand.transform.position - head.transform.position;
+        currentFlyingSpeed = Mathf.Lerp(currentFlyingSpeed, targetFlyingSpeed, Time.deltaTime);
+        if (currentFlyingSpeed != 0)
         {
-            Vector3 flyDirection = leftHand.transform.position - head.transform.position;
             RaycastHit hit;
-            if (Physics.Raycast(head.position, flyDirection, out hit, flyingSpeed * Time.deltaTime, LayerMask.NameToLayer("Floor")) && hit.transform.CompareTag("Floor")
-    || Physics.Raycast(leftHand.position, flyDirection, out hit, flyingSpeed * Time.deltaTime, LayerMask.NameToLayer("Floor")) && hit.transform.CompareTag("Floor"))
+            if (Physics.Raycast(foots.position, flyDirection, out hit, currentFlyingSpeed * Time.deltaTime, _layerMask) ||
+                Physics.Raycast(leftHand.position, flyDirection, out hit, currentFlyingSpeed * Time.deltaTime, _layerMask))
             {
-                return;
+                targetFlyingSpeed = 0;
+                currentFlyingSpeed = 0;
             }
-            transform.position += flyDirection.normalized * Time.deltaTime * flyingSpeed;
+
         }
+
+        transform.position += flyDirection.normalized * Time.deltaTime * currentFlyingSpeed;
     }
 
 }

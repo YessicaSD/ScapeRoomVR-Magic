@@ -20,6 +20,11 @@ public class TorchBehaviour : MonoBehaviour
 
     }
 
+    public void Unlit()
+    {
+        fire.SetActive(false);
+    }
+
     private void OnTriggerEnter(Collider collision)
     {
         if (collision != null)
@@ -28,6 +33,7 @@ public class TorchBehaviour : MonoBehaviour
             if (arrow != null)
             {
                 fire.SetActive(true);
+                TorchesManager.OnTorchLighten(this);
             }
         }
     }
