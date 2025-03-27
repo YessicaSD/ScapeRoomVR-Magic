@@ -18,6 +18,7 @@ public class Fly : MonoBehaviour
     private float targetFlyingSpeed = 0;
     private float currentFlyingSpeed = 0;
     private bool isFlying = false;
+    private bool canFly = true;
     [SerializeField] private LayerMask _layerMask;
 
 
@@ -35,11 +36,20 @@ public class Fly : MonoBehaviour
         Thrust();
     }
 
+    public void SetCanFlyFalse()
+    {
+        canFly = false;
+        targetFlyingSpeed = 0;
+
+    }
 
     private void ToggleJetpackAction(InputAction.CallbackContext context)
     {
-        isFlying = !isFlying;
-        targetFlyingSpeed = isFlying ? flyingSpeed : 0;
+        if (canFly)
+        {
+            isFlying = !isFlying;
+            targetFlyingSpeed = isFlying ? flyingSpeed : 0;
+        }
     }
 
     private void OnDrawGizmos()
