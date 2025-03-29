@@ -8,6 +8,7 @@ TagManager:
   - Floor
   - Cauldron
   - FlyingPotion
+  - Hat
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - TwoHandGrab
   - Stair
   - Floor
-  - 
+  - Hat
   - 
   - 
   - 
